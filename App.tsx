@@ -42,7 +42,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>React Native LogBox for Web</Text>
-      <Text>{process.env.NODE_ENV}</Text>
       <Pressable
         style={({ pressed }) => [styles.button, pressed && styles.pressed]}
         onPress={onShowError}>
