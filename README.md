@@ -42,8 +42,10 @@ When targeting iOS and Android, React Native's native implementation is used.
 import * as React from 'react'
 import { LogBox, LogBoxNotification } from 'react-native-web-log-box'
 
-LogBox.ignoreLogs(['Keywords or regexes ignore'])
-LogBox.install()
+if (process.env.NODE_ENV !== 'production') {
+  LogBox.ignoreLogs(['Keywords or regexes ignore'])
+  LogBox.install()
+}
 
 function App() {
   return (
@@ -55,7 +57,7 @@ function App() {
 }
 ```
 
-LogBox is only used for development, so LogBox will be replaced with stub implementation and have no effect on production bundles.
+LogBox is designed with tree-shaking in mind and will be erased on production builds.
 
 For general information on React Native's LogBox, please refer to [API documentation](https://reactnative.dev/docs/debugging#logbox).
 
