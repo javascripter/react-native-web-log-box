@@ -7,7 +7,6 @@
 
 import * as React from 'react'
 
-import LogBox from '../LogBox'
 import LogBoxLog, { LogLevel } from './LogBoxLog'
 import { Category, Message, parseLogBoxException } from './parseLogBoxLog'
 export type LogBoxLogs = Set<LogBoxLog>
@@ -116,6 +115,7 @@ export function addLog(log: LogData): void {
 export function addException(error: Error): void {
   // Parsing logs are expensive so we schedule this
   // otherwise spammy logs would pause rendering.
+
   setImmediate(() => {
     try {
       appendNewLog(new LogBoxLog(parseLogBoxException(error)))
@@ -228,7 +228,7 @@ export function observe(observer: Observer): Subscription {
 
 export function reportLogBoxError(error: Error): void {
   if (error == null) return
-  LogBox.addException(error)
+  addException(error)
 }
 
 type Props = Readonly<object>
