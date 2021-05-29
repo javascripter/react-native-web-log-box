@@ -34,8 +34,7 @@ npm install react-native-web-log-box
 ## Setup
 
 `react-native-web-log-box` works across Web, iOS and Android.
-Expo projects (Managed and Bare Workflow) are also support.
-ed.
+Expo projects (Managed and Bare Workflow) are also supported.
 
 When targeting iOS and Android, React Native's native implementation is used.
 
