@@ -11,6 +11,14 @@
 
 ---
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/110b38a3-ee8d-4631-abf6-961fa1831066/deploy-status)](https://app.netlify.com/sites/react-native-web-log-box/deploys)
+
+---
+
+**[Demo](https://react-native-web-log-box.netlify.app/)**
+
+---
+
 ## The Problem
 
 You want to see console errors directly on pages without opening DevTools during development when developing for React Native for Web, like [React Native's LogBox](https://reactnative.dev/blog/2020/07/06/version-0.63).
