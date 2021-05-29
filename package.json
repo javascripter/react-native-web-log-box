@@ -51,6 +51,7 @@
     "@typescript-eslint/parser": "^4.25.0",
     "eslint": "^7.27.0",
     "expo": "^41.0.1",
+    "expo-cli": "^4.5.0",
     "expo-module-scripts": "^2.0.0",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
