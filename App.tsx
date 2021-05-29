@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 
+// To test, run `yarn build:watch` and `yarn web:dev`
+
 import { LogBox, LogBoxNotification } from './build'
 
 if (process.env.NODE_ENV !== 'production') {

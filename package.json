@@ -6,12 +6,17 @@
   "types": "build/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "expo-module build",
+    "build": "EXPO_NONINTERACTIVE=1 expo-module build",
+    "build:watch": "expo-module build",
     "clean": "expo-module clean",
     "test": "expo-module test",
+    "test:watch": "expo-module test",
     "prepare": "expo-module prepare",
     "prepublishOnly": "expo-module prepublishOnly",
-    "expo-module": "expo-module"
+    "expo-module": "expo-module",
+    "dev:web": "expo web",
+    "build:web": "npm run build && WEB_PUBLIC_URL=/ expo build:web",
+    "clean:web": "npm run clean && rimraf ./web-build"
   },
   "author": "Tsubasa Sakai <javascripter@tsukkun.net> (https://github.com/javascripter)",
   "license": "MIT",
@@ -39,6 +44,7 @@
     "react-native": "*"
   },
   "devDependencies": {
+    "@expo/webpack-config": "^0.12.74",
     "@types/react": "^17.0.8",
     "@types/react-native": "^0.64.7",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
@@ -51,6 +57,7 @@
     "react-dom": "^17.0.2",
     "react-native": "^0.64.1",
     "react-native-web": "^0.16.3",
+    "rimraf": "^3.0.2",
     "typescript": "^4.3.2"
   },
   "dependencies": {
