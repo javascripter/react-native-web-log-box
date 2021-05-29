@@ -1,6 +1,6 @@
 {
   "name": "react-native-web-log-box",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A web replacement for React Native's LogBox",
   "main": "build/index.js",
   "types": "build/index.d.ts",
