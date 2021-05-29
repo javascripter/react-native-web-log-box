@@ -19,7 +19,7 @@ You want to see console errors directly on pages without opening DevTools during
 
 react-native-web-log-box implements React Native's LogBox and can be used as a drop-in replacement.
 
-Most of the code is taken directly from React Native's codebase and has been carefully adjusted to work on the Web.
+Most of the code is taken directly from React Native's codebase and has been carefully adjusted to work on the Web. Ported features include parsing and formatting error messages to prevent over-showing similar errors that happen in succession.
 
 ## Installation
 
