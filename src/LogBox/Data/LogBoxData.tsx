@@ -34,7 +34,7 @@ const ignorePatterns: Set<IgnorePattern> = new Set()
 let logs: LogBoxLogs = new Set()
 
 let _isDisabled = false
-let updateTimeout: ReturnType<typeof setImmediate> | null = null
+let updateTimeout: ReturnType<typeof setTimeout> | null = null
 
 let _selectedIndex = -1
 
@@ -61,11 +61,11 @@ export function isMessageIgnored(message: string): boolean {
 
 function handleUpdate(): void {
   if (updateTimeout == null) {
-    updateTimeout = setImmediate(() => {
+    updateTimeout = setTimeout(() => {
       updateTimeout = null
       const nextState = getNextState()
       observers.forEach(({ observer }) => observer(nextState))
-    })
+    }, 0)
   }
 }
 
@@ -97,7 +97,7 @@ function appendNewLog(newLog: LogBoxLog) {
 }
 
 export function addLog(log: LogData): void {
-  setImmediate(() => {
+  setTimeout(() => {
     try {
       appendNewLog(
         new LogBoxLog({
@@ -109,20 +109,20 @@ export function addLog(log: LogData): void {
     } catch (error) {
       reportLogBoxError(error)
     }
-  })
+  }, 0)
 }
 
 export function addException(error: Error): void {
   // Parsing logs are expensive so we schedule this
   // otherwise spammy logs would pause rendering.
 
-  setImmediate(() => {
+  setTimeout(() => {
     try {
       appendNewLog(new LogBoxLog(parseLogBoxException(error)))
     } catch (loggingError) {
       reportLogBoxError(loggingError)
     }
-  })
+  }, 0)
 }
 
 export function clear(): void {
